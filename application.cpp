@@ -1,5 +1,5 @@
 #include <GL/glew.h>
-#include<GL/gl.h>
+#include<GL/glut.h>
 #include "application.h"
 #include <iostream>
 #include <cassert>
@@ -56,6 +56,7 @@ GLuint loadShader(const char* vertexfilename, const char* fragmentfilename)
 
     string vertex_info = getTextFile(vertexfilename);
     string fragment_info = getTextFile(fragmentfilename);
+
     GLchar *vertex_shader_source = const_cast<GLchar*>(vertex_info.c_str());
     GLchar *fragment_shader_source = const_cast<GLchar*>(fragment_info.c_str());
 
@@ -76,9 +77,9 @@ GLuint loadShader(const char* vertexfilename, const char* fragmentfilename)
     // glCreateShader F
     // glShaderSource F
     // glCompileShader F
-    // glAttachShader
+    // glAttachShader F
     // glCreateProgram F
-    // glLinkProgram
+    // glLinkProgram F
     // http://www.opengl.org/sdk/docs/man/
     // http://www.lighthouse3d.com/tutorials/glsl-tutorial/creating-a-shader/
     // You are provided with the function getTextFile to load a string from a text file
