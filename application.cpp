@@ -57,17 +57,20 @@ GLuint loadShader(const char* vertexfilename, const char* fragmentfilename)
     string vertex_info = getTextFile(vertexfilename);
     string fragment_info = getTextFile(fragmentfilename);
 
-    GLchar *vertex_shader_source = const_cast<GLchar*>(vertex_info.c_str());
-    GLchar *fragment_shader_source = const_cast<GLchar*>(fragment_info.c_str());
+    // GLchar *vertex_shader_source = const_cast<GLchar*>(vertex_info.c_str());
+    // GLchar *fragment_shader_source = const_cast<GLchar*>(fragment_info.c_str());
+
+    // const char *vertex_shader_source = vertex_info.c_str();
+    // const char *fragment_shader_source = fragment_info.c_str();
 
     // GLsizei vert_source_size = strlen(vertex_shader_source);
     // GLsizei frag_source_size = strlen(fragment_shader_source);
 
-    // glGetShaderSource(vertex_shader_id, 1, NULL, vertex_shader_source);
-    // glGetShaderSource(fragment_shader_id, 1, NULL, fragment_shader_source);
+    glShaderSource(vertex_shader_id, 1, &vertexfilename, NULL);
+    glShaderSource(fragment_shader_id, 1, &fragmentfilename, NULL);
 
-    glShaderSource(vertex_shader_id, 1, &vertex_shader_source, NULL);
-    glShaderSource(fragment_shader_id, 1, &fragment_shader_source, NULL);
+    // glShaderSource(vertex_shader_id, 1, &vertex_shader_source, NULL);
+    // glShaderSource(fragment_shader_id, 1, &fragment_shader_source, NULL);
 
     glCompileShader(vertex_shader_id);
     glCompileShader(fragment_shader_id);
